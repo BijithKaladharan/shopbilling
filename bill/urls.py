@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import *
-
+from django.shortcuts import render
 
 urlpatterns = [
-
+    path("",lambda request:render(request,"bill/admin.html")),
     path('order', ordercreate.as_view(), name='order'),
     path('orderlines/<str:bill_number>', orderlines.as_view(), name='orderlines'),
     path('product', productcreate.as_view(), name='product'),
